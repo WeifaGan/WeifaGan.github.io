@@ -1,2 +1,3 @@
-**This is source code of my blog: ** https://weifagan.cn
+## This is source code of my blog
+https://weifagan.cn
 
