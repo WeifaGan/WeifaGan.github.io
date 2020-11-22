@@ -420,7 +420,8 @@
         <hr class="clearfix">
         <div class="card-content article-card-content">
             <div id="articleContent">
-                <h1 id="FaceBoxes-高精度的CPU实时人脸检测器"><a href="#FaceBoxes-高精度的CPU实时人脸检测器" class="headerlink" title="FaceBoxes: 高精度的CPU实时人脸检测器"></a>FaceBoxes: 高精度的CPU实时人脸检测器</h1><p>论文题目：《FaceBoxes: A CPU Real-time Face Detector with High Accuracy》</p>
+                <ul>
+<li><h1 id="FaceBoxes-高精度的CPU实时人脸检测器"><a href="#FaceBoxes-高精度的CPU实时人脸检测器" class="headerlink" title="FaceBoxes: 高精度的CPU实时人脸检测器"></a>FaceBoxes: 高精度的CPU实时人脸检测器</h1><p>论文题目：《FaceBoxes: A CPU Real-time Face Detector with High Accuracy》</p>
 <p>论文链接：<a target="_blank" rel="noopener" href="https://arxiv.org/pdf/1708.05234.pdf">https://arxiv.org/pdf/1708.05234.pdf</a></p>
 <p>年份：2017</p>
 <p>论文作者：Shifeng Zhang等人</p>
@@ -446,7 +447,7 @@
 <script type="math/tex; mode=display">
 A_{density}=A_{scale}/A_{interval}</script><p>其中$A_{density}$和$A_{interval}$分别为anchor的尺度和平铺间隔。默认的平铺间隔(等于步长)默分别认为32，32，32，64和128。所以Inception的平铺密度分别为1,2,4，而Con3_2和Con4_2的平铺密度分别为4,4。</p>
 <p>可以看出来，不同尺度的anchor之间存在平铺密度不平衡的问题，导致小尺度的人脸召回率比较低，因此，为了改善小anchor的平铺密度，作者提出了anchor密度策略。为了使anchor密集n倍，作者均匀地将$A_{number}=n^2$个anchor铺在感受野的中心附近，而不是铺在中心，如图3所示。将32x32的anchor密集4倍，64x64的anchor密集两倍，以保证不同尺度的anchor有相同的密度。</p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20201121200018610.png" alt="image-20201121200018610"></p>
+<p><img src="https://gitee.com/weifagan/MyPic/raw/master/img/faceboxes.JPG" alt=""></p>
 <h3 id="2-4-训练"><a href="#2-4-训练" class="headerlink" title="2.4 训练"></a>2.4 训练</h3><p><strong>数据扩增</strong>：</p>
 <ul>
 <li>颜色扭曲</li>
@@ -459,7 +460,7 @@ A_{density}=A_{scale}/A_{interval}</script><p>其中$A_{density}$和$A_{interval
 <p><strong>Loss function</strong>: 对于分类，采用softmax loss，而回归则采用smooth L1 损失。</p>
 <p><strong>Hard negative mining</strong>：anchor 匹配后，发现很多anchor是负的，这会引入严重的正负样本不平衡。为了快速优化和稳定训练，作者对loss进行排序然后选择最小的，这样子使得负样本和正样本的比例最大3:1。</p>
 <h2 id="3-实验结果如何？"><a href="#3-实验结果如何？" class="headerlink" title="3 实验结果如何？"></a>3 实验结果如何？</h2><p><strong>Runtime</strong></p>
-<p><img src="C:\Users\Administrator\AppData\Roaming\Typora\typora-user-images\image-20201121212045119.png" alt="image-20201121212045119"></p>
+<p><img src="https://gitee.com/weifagan/MyPic/raw/master/img/faceboxes1.JPG" alt=""></p>
 <p><strong>Evaluation on benchmark</strong></p>
 <p>在FDDB上SOTA。</p>
 <h2 id="4-对我们有什么指导意义？"><a href="#4-对我们有什么指导意义？" class="headerlink" title="4.对我们有什么指导意义？"></a>4.对我们有什么指导意义？</h2><ul>
@@ -467,6 +468,8 @@ A_{density}=A_{scale}/A_{interval}</script><p>其中$A_{density}$和$A_{interval
 <li>在浅的卷积层考虑使用CReLU，可以减少计算量。</li>
 <li>MSCL告诉我们，检测各种不同大小的物体，考虑从深度和宽度上丰富感受野。</li>
 <li>anchor密度策略告诉我们考虑anchor密度以提高召回率。</li>
+</ul>
+</li>
 </ul>
 
             </div>
